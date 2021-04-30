@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <% include header.html %>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <br>
+    <p>El valor de los tags para clasificar los anuncios son:</p>
+    <p><%valorTags.forEach(tag => {  %></p>
+      <p><%= tag %></p>
+    <p><% });%></p>
+    <br>
+    <p>Resutado de la búsqueda de anuncios según los filtros aplicados en <%= title %></p>
+    <p><%= valorFiltro %></p>
+    <br>
+    <h2>Anuncios</h2>
+    <p><%valorQuery.result.forEach(article => { %></p>
+      <p>Nombre del articulo: <%=article.nombre %></p>
+      <p>Precio del articulo: <%=article.precio %></p>
+      <p><%if(article.venta === true){ %></p>
+          <p>Articulo en venta</p>
+      <p><% }else{%></p>
+          <p>Articulo para comprar</p>
+      <p><% }%></p>
+
+      <p>Tags de clasificación:  <%= article.tags %></p>
+      
+      <img src= <%= article.foto %> alt="Articulo: "  height="300">
+      <br>
+    <p><% });%> </p>    
+
+  </body>
+</html>
