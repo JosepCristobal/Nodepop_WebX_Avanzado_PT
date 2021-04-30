@@ -9,11 +9,10 @@ class AuthController {
 
             //Buscamos el usuario en la BBDD
             const user = await User.findOne({email})
-            console.log(user)
+
             //Si no se encuentra  error
         
             if (!user || !(await user.comparePassword(password)) ){
-
                 const error = new Error('Invalid credentials');
                 error.status = 401;
                 next(error);
