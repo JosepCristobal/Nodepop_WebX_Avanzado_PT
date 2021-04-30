@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const authController = require('./controllers/authController');
 
 var indexRouter = require('./routes/index');
 
@@ -32,12 +33,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 //Midelware de ficheros estáticos
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 /**
  * Rutas del API
  */
+app.post('/apiv1/authJWT', authController.postJWT);
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
 /**

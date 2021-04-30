@@ -7,17 +7,11 @@ require('./connectMongoose');
 const Anuncio = require('../models/Anuncio');
 const fs = require('fs');
 const path = require('path'); 
-const { exit, mainModule } = require('process');
+const { exit } = require('process');
 const fichAnuncios = path.join('./config', 'anunciosImp.json');
 
 // Generar usuarios en Mongo
-const User = require('../models/User')
 
-main().catch(err => console.error(err));
-async function main(){
-    await loadAnuncios();
-    await initUsuarios();
-}
 
 //Eliminamos todos los anuncios
 async function borraAnuncio(){  
@@ -63,28 +57,10 @@ async function loadAnuncios(){
     //Insertamos la información en nuestra BBDD
     await inserta(data.anuncios);
     console.log('Fin de proceso');
-    //exit()
+    exit()
 }
 
-async function initUsuarios() {
-    const { deletedCount } = await User.deleteMany();
-    console.log(`Eliminados ${deletedCount} users.`);
-  
-    const result = await User.insertMany([
-      {
-        email: 'pepe@pepe.com',
-        password: await User.hashPassword('1234')
-      },
-      {
-        email: 'josep@josep.com',
-        password: await User.hashPassword('1234')
-      }
-    ]);
-    console.log(`Insertados ${result.length} user${result.length > 1 ? 's' : ''}.`)
-    exit();
-  }
-
 //Ejecutamos la funciones de borrado y carga 
-
+loadAnuncios();
 
 
