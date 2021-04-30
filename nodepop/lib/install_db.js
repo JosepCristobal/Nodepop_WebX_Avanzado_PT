@@ -1,6 +1,6 @@
 
 'use strict';
-
+require('dotenv').config();
 // Cargamos el conector a la base de datos y la dejamos a punto de utilizar
 require('./connectMongoose');
 // cargar el modelo Anuncios
