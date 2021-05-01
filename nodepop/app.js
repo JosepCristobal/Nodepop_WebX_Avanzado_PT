@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const authController = require('./controllers/authController');
+const i18n = require('./lib/i18nConfigure');
 
 var indexRouter = require('./routes/index');
 
@@ -41,6 +42,10 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 app.post('/apiv1/authJWT', authController.postJWT);
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
+
+
+// Inicializamos la internacionalización
+app.use(i18n.init);
 
 /**
  * Rutas de mi Website
