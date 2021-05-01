@@ -29,7 +29,7 @@ router.get('/', jwtAuth, async function(req, res, next) {
 });
 
 //Consulta de todos los tags
-router.get('/tags', async function(req, res, next){
+router.get('/tags', jwtAuth, async function(req, res, next){
     try {
         const tagsV = await Anuncio.allowedTags();
         return res.status(200).json({result: tagsV});  
@@ -39,7 +39,7 @@ router.get('/tags', async function(req, res, next){
 });
 
 //Consulta de tags válidos
-router.get('/tagsValidate', 
+router.get('/tagsValidate', jwtAuth, 
     body('tags').custom(tags => {   
         //Validamos si los tags que nos pasan están dentro de los permitidos
         const errorTags = Anuncio.allowedTagsEnumValidate(tags);
@@ -63,7 +63,7 @@ router.get('/tagsValidate',
 });
 
 //Grabación de nuevos anuncios con validación incluida
-router.post('/',
+router.post('/', jwtAuth,
     [
         body('nombre').not().isEmpty().trim().escape().withMessage('El campo Nombre no puede estar vacío'),
         body('precio').isNumeric().withMessage('El precio debe ser numérico'),
