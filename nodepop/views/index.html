@@ -7,6 +7,11 @@
   <body>
     <% include header.html %>
     <h1><%= title %></h1>
+    <div><p><%= __('Idioma:')%> </p>
+      <% getLocales().forEach(locale => { %>
+        <a href='/change-locale/<%= locale %>' ><%= locale %> </a> &nbsp;
+     <% }) %>
+    </div>
     <p><%= __('Bienvenidos a ')%> <%= title %></p>
     <br>
     <p><%= __('El valor de los tags para clasificar los anuncios son:') %></p>
