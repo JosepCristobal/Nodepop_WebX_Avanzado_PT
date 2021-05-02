@@ -1,1 +1,13 @@
-{}
+{
+	"Bienvenidos a ": "Welcome to ",
+	"El valor de los tags para clasificar los anuncios son:": "The value of the tags to classify the ads are:",
+	"Consulta de anuncios en nuestro portal NodePop": "Consultation of announcements in our NodePop portal",
+	"Resutado de la búsqueda de anuncios según los filtros aplicados en": "Result of the ad search according to the filters applied in ",
+	"Anuncios": "Adverts",
+	"Nombre del articulo:": "Article name: ",
+	"Precio del articulo:": "Item price: ",
+	"Articulo en venta": "Item for sale",
+	"Tags de clasificación:": "Classification Tags: ",
+	"Articulo:": "Article:",
+	"Articulo para comprar": "Item to buy"
+}
