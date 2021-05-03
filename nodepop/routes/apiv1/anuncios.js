@@ -93,6 +93,4 @@ router.post('/', jwtAuth,
 });
 
 
-
-
 module.exports = router;

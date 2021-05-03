@@ -35,6 +35,7 @@ anuncioSchema.statics.lista = function(data){
   const venta = data.venta;
   const precio = data.precio;
   const tags = data.tags;
+  const foto = data.foto;
   const limit = parseInt(data.limit) || 100;
   const skip = parseInt(data.skip) || 0;
   const fields = data.fields;
@@ -83,7 +84,10 @@ anuncioSchema.statics.lista = function(data){
 }
 
 //Creamos un nuevo anuncio
-anuncioSchema.statics.newAnuncio = function(anuncioNew){
+anuncioSchema.statics.newAnuncio = function(anuncioNew,filename=''){
+  if(filename){
+    Object.assign(anuncioNew,{'foto': filename})
+  }
   const anuncio = new Anuncio(anuncioNew);
   const createAnuncio =  anuncio.save();
   return createAnuncio;

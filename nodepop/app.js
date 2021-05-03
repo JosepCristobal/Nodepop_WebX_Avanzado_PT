@@ -6,6 +6,7 @@ var logger = require('morgan');
 const authController = require('./controllers/authController');
 const i18n = require('./lib/i18nConfigure');
 
+
 var indexRouter = require('./routes/index');
 
 var app = express();
