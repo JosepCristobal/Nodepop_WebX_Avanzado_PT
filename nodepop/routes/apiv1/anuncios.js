@@ -19,7 +19,15 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage,
-    dest: './public/images/anuncios'
+    dest: './public/images/anuncios',
+    limits: {fileSize: 1 * 10000 * 10000},
+    fileFilter: (req,file,cb) =>{
+        const ext = path.extname(file.originalname).toLowerCase();
+        if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+            return cb(new Error('Only images are allowed: .png|.jpg|.gif|.jpeg'))
+        }
+        cb(null, true)
+    },
 }).single('foto')
 
 /* GET /apiv1/anuncios  */

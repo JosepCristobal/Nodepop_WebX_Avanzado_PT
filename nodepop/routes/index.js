@@ -22,7 +22,9 @@ router.get('/', async function(req, res, next) {
     //Pondremos el prefijo de la url de las fotos, segun nuestra variable definida en local_config
     resultado.forEach((row) => {
         if (row.foto) {
-        row.foto = configAnuncios.imagesURLBasePath + row.foto;
+          row.foto = configAnuncios.imagesURLBasePath + row.foto;
+        }else{
+          row.foto = configAnuncios.imagesURLBasePath + 'noImage.jpg'
         }
     });
     
