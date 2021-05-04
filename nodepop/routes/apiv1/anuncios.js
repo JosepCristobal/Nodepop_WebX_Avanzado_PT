@@ -11,15 +11,15 @@ const {body, validationResult} = require('express-validator');
 const configAnuncios = require('../../local_config').anuncios;
 const multer = require('multer');
 const storage = multer.diskStorage({
-    destination : path.join(__dirname, 'public/images'),
+    destination : './public/images/anuncios',
     filename: (req,file,cb) =>{
-        cb(null, file.originalname);
+        cb(null, Date.now() +'-'+file.originalname);
     }
 });
 
 const upload = multer({
     storage,
-    dest: path.join(__dirname, 'public/images')
+    dest: './public/images/anuncios'
 }).single('foto')
 
 /* GET /apiv1/anuncios  */
@@ -127,8 +127,9 @@ router.post('/upload', jwtAuth, upload,
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array()});
         }
-        console.log(req.file)
-        const anuncioCreado = await Anuncio.newAnuncio(req.body,req.file.originalname);
+        const namePhoto = req.file ? req.file.filename :''
+        
+        const anuncioCreado = await Anuncio.newAnuncio(req.body,namePhoto);
         res.status(201).json({result: anuncioCreado});
     } catch (error) {
         next(error)      
