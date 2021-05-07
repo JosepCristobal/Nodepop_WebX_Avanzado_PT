@@ -9,6 +9,9 @@ const path = require('path');
 const Anuncio = require('../../models/Anuncio.js');
 const {body, validationResult} = require('express-validator');
 const configAnuncios = require('../../local_config').anuncios;
+const cote = require('cote');
+
+const requester = new cote.Requester({name: 'crea thumbnail'});
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination : './public/images/anuncios',
@@ -138,6 +141,18 @@ router.post('/upload', jwtAuth, upload,
         const namePhoto = req.file ? req.file.filename :''
         
         const anuncioCreado = await Anuncio.newAnuncio(req.body,namePhoto);
+        //Una vez guardado el anuncio, llamamos al microservicio para procesar el thumbnail de la imágen
+        const nameImage = namePhoto
+    
+        requester.send({
+            type: 'convertir imagen',
+            nameImage : nameImage,
+        }, resultado =>{
+            //res.send(`Cambiamos el nombre de la imágen a : ${resultado}`)
+            console.log(`Cambiamos el nombre de la imágen a : ${resultado}`)
+        })
+
+
         res.status(201).json({result: anuncioCreado});
     } catch (error) {
         next(error)      
