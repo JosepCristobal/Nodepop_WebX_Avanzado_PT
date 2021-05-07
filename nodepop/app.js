@@ -48,6 +48,8 @@ app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 // Inicializamos la internacionalización
 app.use(i18n.init);
 
+
+app.use('/thumbnail', require('./routes/convertImage'))
 /**
  * Rutas de mi Website
  * 
