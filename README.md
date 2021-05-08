@@ -72,12 +72,18 @@ Para la puesta en marcha de nuestro proyecto/API, deberemos seguir los siguiente
 
 		found 0 vulnerabilities
 * Con ello conseguiremos instalar todas las dependencias necesarias para que nuestro proyecto funcione.
+* El siguiente paso es crear en la raiz de nuestro proyecto un nuevo fichero, que lo nombraremos como .env y dentro definiremos variables de entorno. En nuestro proyecto debería quedar así:
+
+		MONGODB_CONNECTION_STR = conexión BBDD
+		JWT_SECRET= Sectret
+* El primero pertenece a la cadena de conexión a MongoDB.
+* El segungo, deberemos crear un string que servirá de semilla para generar nuestros tokens de usuario.
 * Ahora deberíamos verificar que tenemos la BBDD MongoDB levantada y accesible desde nuestro ordenador. Si la tenemos en local, posiblemente la tengamos que arrancar de forma manual.
 * Si fuera el caso, deberíamos abrir una ventana de comandos o terminal nuevo y situarnos en el directorio donde se encuentra nuestra BBDD. Si es la primera vez que accedemos a nuestra BBDDD, es recomendable crear una carpeta para almacenar nuestros datos. En nuestro caso hemos creado a partir de la carpeta principal de Mongo, una subcarpeta llamada data y dentro de ella otra llamada db, quedando el directorio estructurado así:
 
 		/mongodb-macos-x86_64-4.4.3/data/db
 		
-* A continuación, debemos arrancar nuestra BBDD y situados dentro de la carpeta principal de mongo ejecutamos el siguiente comando:
+* A continuación, debemos arrancar nuestra BBDD y situados dentro de la carpeta principal de mongo, ejecutamos el siguiente comando:
 
 		./bin/mongod --dbpath ./data/db
 		
