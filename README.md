@@ -176,13 +176,17 @@ Tenemos dos partes diferenciadas:
 		* Buscamos articulos en venta, venta = true
 		* Y queremos que nos devuelva nombre, precio, foto, tags y que excluya el _id
 		* El %20 es para rellenar los espacios en blanco
-	* Ejemplo de consulta en nuestra página html
+	* Ejemplo de consulta en nuestra página html. En la nueva versión hemos añadido al principio de cada anuncio un thumbnail de la imagen principal.
+	* La autenticación no afecta a la parte web
 			
 			http://localhost:3000/?precio=50-&limit=20&tags=lifestyle&tags=motor&venta=true&fields=nombre%20precio%20foto%20tags%20-_id
 
 	* Este mismo ejemplo para la consulta a nuestra API:
 	
 			http://localhost:3000/apiv1/anuncios/?precio=50-&limit=20&tags=lifestyle&tags=motor&venta=true&fields=nombre%20precio%20foto%20tags%20-_id
+
+* En esta versión hemos introducido la autenticación a través de token JWS y afecta a todas las llamadas que hacemos al API.
+* El token lo podemos incluir en la **_query-string o bien en el body_**
 
 * Todas estas consultas se ha realizado con el método "GET" y los parametros se han pasado a través de la url.
 
@@ -232,6 +236,8 @@ Resultado de los tags validados con Postman con retorno de error:
 ### Alta de nuevos anuncios
 Las altas de nuevos anuncios las realizamos con el método POST y los valores necesarios los pasamos a través de body, por consiguiente la petición de altas sólo las podremos hacer con Postman u otro programa similar o bien por código.
 En nuestro caso utilizaremos Postman.
+Todas las peticiones de alta requieren de un token que pasaremos a través de la query string o bien en el body con el nombre token=ValorToken
+
 Los datos y su tipología para realizar el alta de nuevos anuncios son los siguientes:
 
 * nombre : String y campo obligatorio.
@@ -239,11 +245,13 @@ Los datos y su tipología para realizar el alta de nuevos anuncios son los sigui
 * venta : true o false
 * foto : String
 * tags : String y solo se aceptan valores permitidos.
+* foto : file
 
 Hay un sistema de validación en el API que:
 
 * En el supuesto de datos no permitidos, nos devolverá un status 422 y un Json con errors: {Todos los errores encontrados} 
 * En el supuesto que sea todo OK, nos retornara un status 201 y un Json con result: {Datos del anuncio creado}
+* Si el error está en el token, nos devolverá un error 401 con el detalle del error.
 
 Respuesta en el supuesto de datos erroneos en el alta de un nuevo anuncio:
 <p align="center">
