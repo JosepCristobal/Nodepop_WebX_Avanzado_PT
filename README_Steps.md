@@ -116,34 +116,8 @@ Detalle de todos los pasos que hemos seguido para el desarrollo de esta práctic
 * También modificamos nuestro index.js para hacer la conversión de nombres de nuestros thumbnails.
 * Para hacer el test inicial, hemos copiado y renombrado las imágenes existentes, para crear las que consideramos thumbnails para poder hacer las pruebas. Éstas no se han reducido de tamaño. Todas las que suban a partir del API si que serán reducidas.
 * Subida de imágenes y creación de thumbnails a través de microservicio completada y funcionando.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* La parte de test, queda pendiente.
+* Final de la práctica.
 
 
 [Volver a README.md](https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/README.md)
