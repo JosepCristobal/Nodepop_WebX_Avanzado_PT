@@ -6,7 +6,7 @@ const path = require('path')
 
 // Declaramos el microsorvicio
 
-const responder = new cote.Responder({name: 'Conversion imagen'})
+const responder = new cote.Responder({name: 'Conversión imagen'})
 
 
 //Creamos función para componer la ruta y el nombre de entrada y salida de la imágen
@@ -27,11 +27,15 @@ const pathImg = (ruta,nombre,in_out)=>{
 
 //Creamos función para cambiar el tamaño de la imágen
 const resize = async (imgIn,imgOut,size) =>{
-    const image = await Jimp.read(imgIn);
-    // Resize the image to 'width auto' and heigth parameter size.
-    await image.resize(Jimp.AUTO, size);
-    // Save and overwrite the image
-    await image.writeAsync(imgOut);
+    try {
+        const image = await Jimp.read(imgIn);
+        // Resize the image to 'width auto' and heigth parameter size.
+        await image.resize(Jimp.AUTO, size);
+        // Save and overwrite the image
+        await image.writeAsync(imgOut);
+    } catch (error) {
+        next(error);
+    }
 }
 
 //Lógica del microservicio
