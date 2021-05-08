@@ -192,17 +192,17 @@ Tenemos dos partes diferenciadas:
 
 Resutado de la consulta a la página html:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchHtml.png?raw=true" alt="Resultado página html con filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/ResultSearchHtml.png?raw=true" alt="Resultado página html con filtro" width="500"/>
 </p>
 
 Resultado de la consulta a nuesta API:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchAPI_1.png?raw=true" alt="Resultado API con filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/ResultSearchAPI_1.png?raw=true" alt="Resultado API con filtro" width="500"/>
 </p>
 
 Muestra de todos los campos que podemos retornar desde la API:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/ResultSearchTotAPI.png?raw=true" alt="Resultado API sin filtro" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/ResultSearchTotAPI.png?raw=true" alt="Resultado API sin filtro" width="500"/>
 </p>
 
 
@@ -213,7 +213,7 @@ Podemos consultar todos los tags de clasificación disponibles para los anuncios
 	
 Resultado en formato JSON de los tags disponibles:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/TagsDisponibles.png?raw=true" alt="Tags disponibles" width="200"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/TagsDisponibles.png?raw=true" alt="Tags disponibles" width="200"/>
 </p>
 
 
@@ -229,8 +229,29 @@ El resultado que nos retornará será un status 200 y result: OK o bien en el su
 
 Resultado de los tags validados con Postman con retorno de error:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/TagsValidate.png?raw=true" alt="Tags disponibles" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/TagsValidate.png?raw=true" alt="Tags disponibles" width="500"/>
 </p>
+
+### Autenticación de usuarios
+Como ya se ha comentado, en esta versión hemos introducido el concepto de seguridad y para ello todas la llamadas al API deben ser con autenticación. Para ello utilizaremos un token JWS que nos facilitará nuestra aplicación previa validación de nuestro usuario y contraseña.
+Este token lo deberemos acompañar en la query string o bien el el body (token=miToken), en todas las llamadas que hagamos al API.
+Para poder hacer las pruebas, en la carga inicial de datos, se generarán dos usuarios.
+
+		{
+        email: 'pepe@pepe.com',
+        password: await User.hashPassword('1234')
+      },
+      {
+        email: 'josep@josep.com',
+        password: await User.hashPassword('1234')
+      }
+
+Validación de usuario:
+
+<p align="center">
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/Valida_RetornaToken.png?raw=true" alt="Tags disponibles" width="500"/>
+</p>
+
 
 
 ### Alta de nuevos anuncios
@@ -255,12 +276,12 @@ Hay un sistema de validación en el API que:
 
 Respuesta en el supuesto de datos erroneos en el alta de un nuevo anuncio:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/Alta_Error.png?raw=true" alt="Tags disponibles" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/Alta_Error.png?raw=true" alt="Tags disponibles" width="500"/>
 </p>
 
 Respuesta cuando el alta de un nuevo anuncio es OK:
 <p align="center">
-<img src="https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/nodepop/public/images/AltaOK.png?raw=true" alt="Tags disponibles" width="500"/>
+<img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/AltaConFoto.png?raw=true" alt="Tags disponibles" width="500"/>
 </p>
 
 
