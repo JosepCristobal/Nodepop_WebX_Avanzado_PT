@@ -37,7 +37,7 @@ Esta práctica es una continuación de la que se hizo en fundamentos y nuestro o
 ## Desarrollo de proyecto
 En el siguiente enlace, describimos paso a paso todo el recorrido que hemos seguido en el desarrollo de nuestro proyecto:
 
-[Paso a paso](https://github.com/JosepCristobal/Nodepop_WebX_PT/blob/master/README_pasos.md)
+[Paso a paso](https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/README_Steps.md)
 
 En todo nuestro código hemos incluido comentarios para poder hacer un seguimiento y clarificar que hace cada una de nuestras funcionalidades (funciones, clases, midelwares, rutas, etc.).
 
