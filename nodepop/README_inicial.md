@@ -77,12 +77,12 @@ Para la puesta en marcha de nuestro proyecto/API, deberemos seguir los siguiente
 	
 				module.exports = {
 	    			anuncios: {
-	      			imagesURLBasePath: 'http://192.168.10.114:3000/images/anuncios/',
-	      			baseUrlPath: 'http://192.168.10.114:3000/'
+	      			imagesURLBasePath: 'http://localhost:3000/images/anuncios/',
+	      			baseUrlPath: 'http://localhost:3000/'
 	    			}
   				};
   				
-		* imagesURLBasePath: pertenece a la ruta donde vamos a almacenar las imágenes de nuestro anuncios. En este caso, solo cambiaríamos 'http://192.168.10.114:3000' para adaptarla a la ruta de nuestro ordenador o de la red local.
+		* imagesURLBasePath: pertenece a la ruta donde vamos a almacenar las imágenes de nuestro anuncios. En este caso, solo cambiaríamos 'http://localhost:3000' para adaptarla a la ruta de nuestro ordenador o de la red local.
 		* baseUrlPath: Es la ruta base de nuestro servicio. Haríamos el cambio al igual que hemos hecho en el punto anterior.
 	* A continuación editaremos ./lib/connectMongoose.js que es donde tenemos la cadena de conexión a nuestra BBDD MongoDB. Si trabajamos en local, este paso no sería necesario.
 
@@ -253,7 +253,7 @@ Creo que con este trabajo he cubierto todos los requisitos que se pedían en el 
 Creo que la parte del backend es la parte más importate y la base para dar funcionalidad a cualquier aplicación web, dispositivo móvil o servicio a un cliente y por ello he querido asentar bien los conocimientos adquiridos en este módulo y he intentado darlo todo.
 La práctica la he empezado de cero y como le dije a Alberto Casero en el módulo de introducción a Javascript, donde más se aprende es cuando te enfrentas solo a la práctica e intentas aplicar todo lo aprendido en clase y lo compelmentas buscando información adicional para mejorar tu proyecto.
 
-Al final el tiempo se me ha agotado y me ha quedado pendiente el propósito de mejorar la presentación de la página htmlpero no ha podido ser.
+Al final el tiempo se me ha agotado y me ha quedado pendiente el propósito de mejorar la presentación de la página html pero no ha podido ser.
 
 Realmente ha sido una práctica muy interesante y me lo he pasado muy bien. He refrescado y he aprendido mucho realizándola.
 
