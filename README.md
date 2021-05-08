@@ -183,7 +183,8 @@ Tenemos dos partes diferenciadas:
 		* Y queremos que nos devuelva nombre, precio, foto, tags y que excluya el _id
 		* El %20 es para rellenar los espacios en blanco
 	* Ejemplo de consulta en nuestra página html. En la nueva versión hemos añadido al principio de cada anuncio un thumbnail de la imagen principal.
-	* La autenticación no afecta a la parte web
+	* La autenticación no afecta a la parte web.
+	* En esta versión hemos incluido la internacionalización. Hemos incluido en la parte web un selector de idiomas interactivo.
 			
 			http://localhost:3000/?precio=50-&limit=20&tags=lifestyle&tags=motor&venta=true&fields=nombre%20precio%20foto%20tags%20-_id
 
