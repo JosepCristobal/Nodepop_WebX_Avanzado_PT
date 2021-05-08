@@ -10,6 +10,7 @@ const path = require('path');
 const { exit, mainModule } = require('process');
 const fichAnuncios = path.join('./config', 'anunciosImp.json');
 
+
 // Generar usuarios en Mongo
 const User = require('../models/User')
 

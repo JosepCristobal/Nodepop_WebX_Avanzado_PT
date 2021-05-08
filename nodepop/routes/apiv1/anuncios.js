@@ -13,6 +13,11 @@ const cote = require('cote');
 
 const requester = new cote.Requester({name: 'crea thumbnail'});
 const multer = require('multer');
+/**
+ * Para evitar duplicados, remombraremos la imagen de la siguiente forma
+ * fecha actual + nombre original imagen + extensión original
+ */
+
 const storage = multer.diskStorage({
     destination : './public/images/anuncios',
     filename: (req,file,cb) =>{
@@ -85,38 +90,9 @@ router.get('/tagsValidate', jwtAuth,
 
 });
 
-//Grabación de nuevos anuncios con validación incluida
-router.post('/', jwtAuth,
-    [
-        body('nombre').not().isEmpty().trim().escape().withMessage('El campo Nombre no puede estar vacío'),
-        body('precio').isNumeric().withMessage('El precio debe ser numérico'),
-        body('venta').isBoolean().withMessage('Valores admitidos: true o false'),
-        body('tags').custom(tags => {   
-            //Validamos si los tags que nos pasan están dentro de los permitidos
-            const errorTags = Anuncio.allowedTagsEnumValidate(tags)
-
-            //Si alguno de los tags no se encuentra, lanzaremos un error indicando que tags no son admitidos
-            if (errorTags.length > 0){
-                throw new Error(`Tags no admitidos: ${errorTags}`);
-            } else {
-                return true}
-        })
-    ], 
- async (req, res, next) =>{
-    try {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(422).json({ errors: errors.array()});
-        }
-        const anuncioCreado = await Anuncio.newAnuncio(req.body);
-        res.status(201).json({result: anuncioCreado});
-    } catch (error) {
-        next(error)      
-        }
-});
 
 //Grabación de nuevos anuncios con validación incluida y subida de imagen
-router.post('/upload', jwtAuth, upload,
+router.post('/', jwtAuth, upload,
     [
         body('nombre').not().isEmpty().trim().escape().withMessage('El campo Nombre no puede estar vacío'),
         body('precio').isNumeric().withMessage('El precio debe ser numérico'),
@@ -148,10 +124,10 @@ router.post('/upload', jwtAuth, upload,
             type: 'convertir imagen',
             nameImage : nameImage,
         }, resultado =>{
-            //res.send(`Cambiamos el nombre de la imágen a : ${resultado}`)
-            console.log(`Cambiamos el nombre de la imágen a : ${resultado}`)
+            if (!resultado) {
+                console.erro('Error en microservice al crear el thumbnail')};
+            //console.log(`Cambiamos el nombre de la imágen a : ${resultado}`)
         })
-
 
         res.status(201).json({result: anuncioCreado});
     } catch (error) {

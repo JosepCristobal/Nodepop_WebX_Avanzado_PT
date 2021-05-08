@@ -33,19 +33,24 @@ const resize = async (imgIn,imgOut,size) =>{
         await image.resize(Jimp.AUTO, size);
         // Save and overwrite the image
         await image.writeAsync(imgOut);
+        return true
     } catch (error) {
-        next(error);
+       console.error(error);
+       return false
     }
 }
 
 //Lógica del microservicio
-responder.on('convertir imagen', (req, done) => {
+responder.on('convertir imagen', async (req, done) => {
     
     //const completePath = req.completePath
     const completePath = '../nodepop/public/images/anuncios'
     const filename = req.nameImage
-    resize(pathImg(completePath,filename,'in'),pathImg(completePath,filename,'out'),100 )
-    const resultado = pathImg(completePath,filename,'filename');
+    const resultResize = await resize(pathImg(completePath,filename,'in'),pathImg(completePath,filename,'out'),100 )
+    //console.log('El resultado del resize en:', resultResize)
+    let resultado = undefined
+    if (resultResize) resultado = pathImg(completePath,filename,'filename');   
+ 
     //Devolvemos el nombre de la nueva imágen creada
     done(resultado); 
 });

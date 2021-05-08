@@ -25,7 +25,7 @@
     <h2><%= __('Anuncios')%></h2>
     <p><%valorQuery.forEach(article => { %></p>
       <img src= <%= article.foto_th %> alt=<%= __('Articulo:')%>  height="100">
-      <p>El nombre de thumbnail es <%= article.foto_th%></p>
+      
       <p><%= __('Nombre del articulo:')%> <%=article.nombre %></p>
       <p><%= __('Precio del articulo:')%> <%=article.precio %></p>
       <p><%if(article.venta === true){ %> </p>
