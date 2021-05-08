@@ -48,7 +48,74 @@ Detalle de todos los pasos que hemos seguido para el desarrollo de esta práctic
 * Creamos dos tipos de texto distintos para el mensaje que retornaremos cuando el token no sea válido y nos retorne un error.
 * Damos por terminado el primer punto de la práctica de **Autenticación**
 * Volvemos a retomar el tema de la internacionalización.
-* 
+* En lib/i18nConfigure.js creamos la parametrización para el 'es' español, 'en' inglés.
+* Empezamos a crear las variables y los textos para los dos idiomas.
+* Añadimos un selector de idioma en nuestra página html. Lo creamos de forma interactiva para que si añadimos un nuevo idioma, no tengamos que cambiar nuestro código y se añada de forma dinámica.
+* Aplicamos un href a cada uno y vamos a utilizar las cookies para que se perpetúe el idioma seleccionado durante toda la 'session'.
+* Creamos el link.
+* Ahora modificamos nuestra app.js y creamos 
+		
+		app.use('/changue-locale', require('./routes/change-locale'));
+* Creamos en /routes/change-locale.js una ruta donde añadiremos una cookie con el idioma seleccionado y posteriormente haremos una redirección a la misma página de la que venimos. Utilizaremos  'referer' para saber de donde venimos.
+* La cookie que creamos la llamaremos 'nodepop_locale'.
+* Editamos i18nConfigure.js y añadimos otro parametro más que será el cookie:'nodeapi_locale'
+* Ahora en change_locale.js vamos a redirigir a la página de donde venimos.
+* Debemos incluir en app.js la siguiente linea de código para inicializarlo.
+
+		// Inicializamos la internacionalización
+		app.use(i18n.init);
+* Probado y funcionando.
+
+		res.redirect(req.get('referer'));
+* **Internacionalización** terminada
+* Ahora vamos a abordar la subida de imágen.
+* Utilizaremos la librería multer para ayudarnos en la subida.
+
+		npm install multer
+* Buscamos información y procedemos a ello.
+* El nombre de la imagen será una composición de hora actual mas el nombre original de la imagen con extensión incluida. Con ello conseguiremos que no tengamos imágenes con nombres duplicados.
+* Subiremos la imagen y guardaremos el nombre en nuestra BBDD junto a los datos del anuncio.
+* A través de multer limitaremos el tamaño, el tipo y convertiremos el nombre original de la imagen en minúsculas.
+* Los tipos de imagen admitidos son: .png, .jpg, .jpeg, .gif.
+* La foto no es obligatoria, en caso de no existir, en la BBDD guardaremos una ruta a una imagen genérica.
+* La mayor parte del código está en routes/apiv1/anuncios.js
+* **Subida de imagen** concluido.
+* Ahora nos toca abordar la generacion del thumbnail a través de un microservicio.
+* Para ello, vamos a utilizar la librería cote.
+
+		npm install cote
+* Cote es una librería que nos permite construir microservicios on cero configuración.
+* Vamos a crear nuestro microservicio en una carpeta dentro de nuestro proyecto, solo por tema de comodida, pero hay que dejar claro que este no pertenece al proyecto nodepop.
+* Creamos en la raiz de nuestro proyecto la carpeta microservices y dentro, el microservicio thumbnail.js.
+* Modificamos nuestro package.json para añadir una llamada directa al arranque de nuestro microservicio.
+* Ahora para arrancarlo, lo haremos con la siguiente instrucción:
+
+		npm run thService
+* La configuración de la llamada al microservicio la haremos en routes/apiv1/anuncios.js
+* Previa carga de la libreria cote, hacemos la llamada de la siguiente forma:
+
+		requester.send({
+            type: 'convertir imagen',
+            nameImage : nameImage,
+        }, resultado =>{
+            if (!resultado) {
+                console.erro('Error en microservice al crear el thumbnail')};
+        })
+* En nuestro microservicio, para tratar la imagen y poder reducirla, utilizamos la librería jimp.
+
+		npm install jimp
+* Lo dejamos preparado para reducir la imagen al tamaño en pixels que le indiquemos por parámetro y el nombre.
+* En la reducción de la imagen vamos a conservar las proporciones de ella, para ello solo vamos a modificar la altura y el ancho haremos que jimp lo ajuste autimáticamente.
+* La nueva imagen creada se guardará en la misma ruta que la original, renombrando el nombre de archivo de la siguiente forma:
+
+		Imagen original: 	TeslaM.jpg
+		Imagen transforada: TeslaM_thumbnail.jpg
+* Hacemos todas las pruebas y funciona todo de forma correcta.
+* En la BBDD no guardaremos la ruta de thumbnail, lo deduciremos añadiendo el sufijo **_thumbnail **al nombre del original.
+* Ahora procedemos a modificar nuestro index.html para poder mostrar nuestros thumbnails en los anuncios.
+* También modificamos nuestro index.js para hacer la conversión de nombres de nuestros thumbnails.
+* Para hacer el test inicial, hemos copiado y renombrado las imágenes existentes, para crear las que consideramos thumbnails para poder hacer las pruebas. Éstas no se han reducido de tamaño. Todas las que suban a partir del API si que serán reducidas.
+* Subida de imágenes y creación de thumbnails a través de microservicio completada y funcionando.
 
 
 
