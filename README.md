@@ -291,6 +291,22 @@ Respuesta cuando el alta de un nuevo anuncio es OK:
 </p>
 
 
+### Conclusiones finales
+Creo que con este trabajo se han cubierto todos los requisitos básicos de la práctica y me ha sabido mal no poder abordar los dos extras que nos pedían, implantación de testing en nuestro proyecto y el de desarrollar un módulo público y colgarlo en npm.
+
+Como ya comenté en la práctica anterior de backend, soy más de back que de front.
+
+Bajo mi opinión personal, creo que el backend es la parte más importante de una aplicación, sin ella nada funciona. Toda la funcionalidad de la mayoría de aplicaciones web, móviles y otros servicios dependen de este elemento tan importante.
+
+Esta práctica me ha ayudado a asentar muchos conocimientos aprendidos en clase y otros que he aprendido a raiz de la búsqueda de información para abordar según que partes de la practica.
+Ha sido un ejercicio muy interesante y realmente he disfrutado haciendola.
+
+Muchas gracias Javier por todo.
+
+Un placer, como siempre!
+
+
+
 
 
 
