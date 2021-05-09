@@ -5,16 +5,16 @@ Entrega de práctica de Node JS avanzado Bootcamp Web X
 
 Esta práctica es una continuación de la que se hizo en fundamentos y nuestro objetivo es  
 
--	Implementar los conceptos de segurida y autenticación para acceder a nuestra API.
+-	Implementar los conceptos de seguridad y autenticación para acceder a nuestra API.
 -	Implementar la internacionalización en nuestra parte desarrollada de front.
-- 	Subida de imagenes directamente desde nuestra API y registro en nuestra BBDD.
+- 	Subida de imágenes directamente desde nuestra API y registro en nuestra BBDD.
 -  Generar un thumbnail de cada imagen subida, a través de un microservicio que correrá en background.
 -  Y opcionalmente, podemos implementar el testing en nuestro proyecto.
 
 ## Consideraciones generales
 
 1. Autenticación
-	* Nuestro API necesita protegerse, para ello debemos implementar autenticación JWT al API. No lo aplicaremos en nuestra parte de fron en nuestro website.
+	* Nuestro API necesita protegerse, para ello debemos implementar autenticación JWT al API. No lo aplicaremos en nuestra parte de front en nuestro website.
 	* Crearemos una ruta POST /api/authenticate para hacer login y devolver el token JWT.
 	* En la ruta GET /apiv1/anuncios incluiremos el JWT en una cabecera o en el query-string para hacer la petición y validar que el usuario tiene permisos para acceder.
 	* Si hacemos la llamada a /apiv1/anuncios con un token caducado o bien sin token, devolveremos un código de status HTTP 401 y un json con información del error.
@@ -291,9 +291,18 @@ Respuesta cuando el alta de un nuevo anuncio es OK:
 <img src="https://github.com/JosepCristobal/Nodepop_WebX_Avanzado_PT/blob/master/nodepop/public/images/AltaConFoto.png?raw=true" alt="Tags disponibles" width="500"/>
 </p>
 
+### Módulo público
+
+https://www.npmjs.com/package/pepe-distcalc
+
+Este es el enlace que nos permite acceder a nuestro módulo público que hemos publicado en NPM.
+El tiempo se ha terminado y no he podido terminarlo.
+La finalidad del módulo es calcular la distancia entre dos puntos georeferenciados.
+Introducimos las coordenadas del punto A y punto B y la intención es que el módulo nos devuelva la distancia en Km y linea recta entre los dos puntos. Además nos tiene que identificar la ciudad, código postal, pais y calle de cada uno de los puntos.
+
 
 ### Conclusiones finales
-Creo que con este trabajo se han cubierto todos los requisitos básicos de la práctica y me ha sabido mal no poder abordar los dos extras que nos pedían, implantación de testing en nuestro proyecto y el de desarrollar un módulo público y colgarlo en npm.
+Creo que con este trabajo se han cubierto todos los requisitos básicos de la práctica y me ha sabido mal no poder abordar uno de los extras que nos pedían, implantación de testing en nuestro proyecto.
 
 Como ya comenté en la práctica anterior de backend, soy más de back que de front.
 
