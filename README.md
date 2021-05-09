@@ -298,7 +298,7 @@ https://www.npmjs.com/package/pepe-distcalc
 Este es el enlace que nos permite acceder a nuestro módulo público que hemos publicado en NPM.
 El tiempo se ha terminado y no he podido terminarlo.
 La finalidad del módulo es calcular la distancia entre dos puntos georeferenciados.
-Introducimos las coordenadas del punto A y punto B y la intención es que el módulo nos devuelva la distancia en Km y linea recta entre los dos puntos. Además nos tiene que identificar la ciudad, código postal, pais y calle de cada uno de los puntos.
+Introducimos las coordenadas del punto A y punto B y la intención es que el módulo nos devuelva la distancia en Km en linea recta entre los dos puntos. Además nos tiene que identificar la ciudad, código postal, pais y calle de cada uno de los puntos.
 
 
 ### Conclusiones finales
