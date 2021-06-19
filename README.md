@@ -301,7 +301,7 @@ La finalidad del módulo es calcular la distancia entre dos puntos georeferencia
 Introducimos las coordenadas del punto A y punto B y la intención es que el módulo nos devuelva la distancia en Km en linea recta entre los dos puntos. Además nos tiene que identificar la ciudad, código postal, pais y calle de cada uno de los puntos.
 
 
-## Despliegue de la aplicación en servidor publico
+# Despliegue de la aplicación en servidor publico
 ### Práctica del módulo configuración de servidores y despliegue de aplicaciones.
 Para poder hacer pruebas en un entorno real y siguiendo las indicaciones del módulo, en las siguientes url
 podremos ejecutar y evaluar la aplicación/API:
