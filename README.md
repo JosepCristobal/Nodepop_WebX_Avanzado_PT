@@ -300,23 +300,25 @@ El tiempo se ha terminado y no he podido terminarlo.
 La finalidad del módulo es calcular la distancia entre dos puntos georeferenciados.
 Introducimos las coordenadas del punto A y punto B y la intención es que el módulo nos devuelva la distancia en Km en linea recta entre los dos puntos. Además nos tiene que identificar la ciudad, código postal, pais y calle de cada uno de los puntos.
 
+
 ## Despliegue de la aplicación en servidor publico
 ### Práctica del módulo configuración de servidores y despliegue de aplicaciones.
 Para poder hacer pruebas en un entorno real y siguiendo las indicaciones del módulo, en las siguientes url
 podremos ejecutar y evaluar la aplicación/API:
 
- ### Páginas estáticas:
+ #### Páginas estáticas:
   * https://pepetrans.com
   * https://www.pepetrans.com
   * Ip pública : http://18.169.74.133
  
- ### Acceso API Nodepop
+ #### Acceso API Nodepop
   * https://node.pepetrans.com
  
- ### Acceso a página estatica para verificar cabecera.
+ #### Acceso a página estatica para verificar cabecera.
    https://node.pepetrans.com/images/Anuncios/iPhone5S.jpg
    
   Para más información consultar en el  [README Despliegue de servidores](https://github.com/JosepCristobal/srv_confServWebX_PT) del proyecto.
+
 
 
 
