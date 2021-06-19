@@ -315,7 +315,10 @@ podremos ejecutar y evaluar la aplicación/API:
   * https://node.pepetrans.com
  
  #### Acceso a página estatica para verificar cabecera.
-   https://node.pepetrans.com/images/anuncios/kawa.jpg
+ Ejemplo directo:
+   https://node.pepetrans.com/images/anuncios/kawa.jpg   
+ cualquier imágen de anuncios de https://node.pepetrans.com
+ css de react en www.pepetrans.com.
    
   Para más información consultar en el  [README Despliegue de servidores](https://github.com/JosepCristobal/srv_confServWebX_PT) del proyecto.
 
