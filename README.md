@@ -315,7 +315,7 @@ podremos ejecutar y evaluar la aplicación/API:
   * https://node.pepetrans.com
  
  #### Acceso a página estatica para verificar cabecera.
-   https://node.pepetrans.com/images/Anuncios/iPhone5S.jpg
+   https://node.pepetrans.com/images/anuncios/kawa.jpg
    
   Para más información consultar en el  [README Despliegue de servidores](https://github.com/JosepCristobal/srv_confServWebX_PT) del proyecto.
 
