@@ -1,5 +1,6 @@
 # Práctica Backend Avanzado
-Entrega de práctica de Node JS avanzado Bootcamp Web X
+Entrega de práctica de Node JS avanzado Bootcamp Web X    
+Al final de este README está el añadido de la práctica del módulo de configuración de servidores y despliegue de aplicaciones
 
 ## Objetivo
 
