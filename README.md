@@ -296,12 +296,12 @@ Respuesta cuando el alta de un nuevo anuncio es OK:
 https://www.npmjs.com/package/pepe-distcalc
 
 Este es el enlace que nos permite acceder a nuestro módulo público que hemos publicado en NPM.
-El tiempo se ha terminado y no he podido terminarlo.
 La finalidad del módulo es calcular la distancia entre dos puntos georeferenciados.
 Introducimos las coordenadas del punto A y punto B y la intención es que el módulo nos devuelva la distancia en Km en linea recta entre los dos puntos. Además nos tiene que identificar la ciudad, código postal, pais y calle de cada uno de los puntos.
 
 
 # Despliegue de la aplicación en servidor de acceso público.
+### 20/06/2021
 ### Práctica del módulo configuración de servidores y despliegue de aplicaciones.
 Para poder hacer pruebas en un entorno real y siguiendo las indicaciones del módulo, en las siguientes url
 podremos ejecutar y evaluar la aplicación/API:
@@ -317,7 +317,7 @@ podremos ejecutar y evaluar la aplicación/API:
  #### Acceso a página estatica para verificar cabecera.
  Ejemplo directo:
    https://node.pepetrans.com/images/anuncios/kawa.jpg   
- cualquier imágen de anuncios de https://node.pepetrans.com
+ cualquier imágen de anuncios de https://node.pepetrans.com   
  css de react en www.pepetrans.com.
    
   Para más información consultar en el  [README Despliegue de servidores](https://github.com/JosepCristobal/srv_confServWebX_PT) del proyecto.
